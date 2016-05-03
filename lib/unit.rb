@@ -10,6 +10,19 @@ class Unit
   end
 
   def attack!(enemy)
-    enemy.damage(@attack_power)
+    if !enemy.dead? && !self.dead?
+      enemy.damage(@attack_power)
+    else
+      puts "Cannot attack a dead unit"
+    end
   end
+
+  def dead?
+    @health_points <= 0
+  end
+
+  def can_attack?
+    !dead?
+  end
+
 end

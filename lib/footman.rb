@@ -10,7 +10,11 @@ class Footman < Unit
   end
 
   def attack!(enemy)
-    enemy.damage(10)
+    if !enemy.dead? && !self.dead?
+      enemy.damage(@attack_power/2.ceil)
+    else
+      puts "Cannot attack a dead unit"
+    end
   end
 
   def damage(ap)

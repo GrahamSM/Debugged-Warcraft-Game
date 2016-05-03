@@ -1,5 +1,5 @@
 class Peasant < Unit
-  attr_reader :health_points, :attack_power
+  attr_accessor :health_points, :attack_power
 
   def initialize
     @health_points = 35
